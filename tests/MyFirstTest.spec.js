@@ -64,29 +64,28 @@ test('Test that search is working recorded by inspector', async () => {
   test('panda', async () => {
   await startPage.initiateSearch("intitle:panda");
   const results = await page.evaluate(() => Array.from(document.querySelectorAll('.result__title'), element => element.textContent));
-    results.forEach(result => {
-      expect(result).toContain("Panda");
-    });
+    results.forEach(result => {
+      expect(result).toContain("Panda");
+    });
 });
 
-  const passwordsLengths = ['8', '16', '64'];
-  passwordsLengths.forEach(passwordLength => {
-    test(`Generate ${passwordLength} chracters long password`, async () => {
-      await startPage.initiateSearch("password " + passwordLength);
+  const passwordsLengths = ['8', '16', '64'];
+  passwordsLengths.forEach(passwordLength => {
+    test(`Generate ${passwordLength} chracters long password`, async () => {
+      await startPage.initiateSearch("password " + passwordLength);
       const generatedPassword = await resultsPage.getGeneratedPassword();
-      console.log(generatedPassword);
-      
-      expect(generatedPassword.length).toEqual(+passwordLength)
-    });
-  });
 
-  const invalidPasswordLengths = ['7', '65'];
-  invalidPasswordLengths.forEach(passwordLength => {
-    test(`Fails to Generate ${passwordLength} chracters long password`, async () => {
-      await startPage.initiateSearch("password " + passwordLength);
-      const isPasswordElementVisible = await page.isVisible(".c-base__sub");
-      expect(isPasswordElementVisible).toEqual(false)
-    });
-  });
-  });
-  //commit
+      expect(generatedPassword.length).toEqual(+passwordLength)
+    });
+  });
+
+  const invalidPasswordLengths = ['7', '65'];
+  invalidPasswordLengths.forEach(passwordLength => {
+    test(`Fails to Generate ${passwordLength} chracters long password`, async () => {
+      await startPage.initiateSearch("password " + passwordLength);
+      const isPasswordElementVisible = await page.isVisible(".c-base__sub");
+      expect(isPasswordElementVisible).toEqual(false)
+    });
+  });
+  });
+console.log("just for a change");
