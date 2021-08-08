@@ -11,6 +11,6 @@ exports.DuckStartPage = class DuckStartPage {
     async initiateSearch(searchCriteria) {
     await this.page.fill('#search_form_input_homepage', searchCriteria);
     await this.page.click("#search_button_homepage");
-    return await this.page.waitForNavigation();
+    await this.page.waitForNavigation();
     }
 }
