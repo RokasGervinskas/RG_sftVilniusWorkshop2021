@@ -1,3 +1,5 @@
+//Uzkomentuota nes ji runina vietoj HW failo
+/* 
 const { test, expect } = require('@playwright/test');
 const { DuckStartPage } = require('../pages/duckStartPage')
 const { DuckResultsPage } = require('../pages/duckResultsPage')
@@ -36,7 +38,7 @@ test('Test that search is working recorded by inspector', async () => {
   await page.click('input[name="q"]');
   // Click input:has-text("S")
   await Promise.all([
-    page.waitForNavigation(/*{ url: 'https://duckduckgo.com/?q=Test&ia=web' }*/),
+   // istrinta buvo kazkas
     page.click('input:has-text("S")')
   ]);
   // Click #links div div:has-text("Test | Definition of Test by Merriam-WebsterYour browser indicates if you've vis")
@@ -89,3 +91,4 @@ test('Test that search is working recorded by inspector', async () => {
   });
   });
 console.log("just for a change");
+*/

@@ -6,7 +6,7 @@ const config = {
       viewport: { width: 1280, height: 720 },
       screenshot: 'on',
       launchOptions: {
-              slowMo: 250,
+              slowMo: 1000,
           },
     },
   };
